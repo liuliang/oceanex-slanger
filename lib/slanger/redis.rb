@@ -62,6 +62,7 @@ module Slanger
     end
 
     def new_connection
+      puts "redis url: #{Slanger::Config.redis_address}"
       EM::Hiredis.connect Slanger::Config.redis_address
     end
 

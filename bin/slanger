@@ -132,6 +132,8 @@ EM.run do
   puts "Running Slanger v.#{Slanger::VERSION}"
   puts "\n"
 
+  puts "options: #{options}"
+
   puts "Slanger API server listening on port #{Slanger::Config.api_port}"
   puts "Slanger WebSocket server listening on port #{Slanger::Config.websocket_port}"
 end
