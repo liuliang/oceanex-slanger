@@ -39,7 +39,12 @@ module Slanger
     end
 
     def publish(*arg)
-      publish_event(:publish, *arg)
+      puts "redis publish arg: #{arg}"
+      result = publish_event(:publish, *arg).errback { |e|
+        p [:publisherror, e]
+      }
+      puts "redis publish result: #{result}"
+      result
     end
 
     def publish_event(method, *args)
