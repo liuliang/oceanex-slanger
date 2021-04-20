@@ -41,7 +41,7 @@ module Slanger
     def publish(*arg)
       puts "redis publish arg: #{arg}"
       result = publish_event(:publish, *arg).errback { |e|
-        p [:publisherror, e]
+        p [:publisherror, "redis:#{Slanger::Config.redis_address}:#{e}"]
       }
       puts "redis publish result: #{result}"
       result
